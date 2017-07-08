@@ -11,6 +11,6 @@ def wsgi_application(environ,start_response):
     start_response(status, headers)
     return body
 
-app.wsgi_app = ProxyFix(app.wsgi_app)
+app.wsgi_application = ProxyFix(app.wsgi_application)
 if __name__ == '__main__':
     app.run()
