@@ -18,4 +18,9 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$login/', include('qa.urls')),
+    url(r'^$question/id1', include('qa.urls')),
+    url(r'^$ask/', include('qa.urls')),
+    url(r'^$popular/', include('qa.urls')),
+    url(r'^$new/', include('qa.urls')),
 ]
