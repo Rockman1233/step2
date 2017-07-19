@@ -7,7 +7,7 @@ class Question(models.Model):
     text = models.TextField()
     added_at = models.DateField(auto_now_add = True)
     rating = models.IntegerField(default = 0)
-    author = models.CharField(User, max_length = 30)
+    author = models.ForeignKey(User, max_length = 30)
     likes = models.TextField(User)
     
 class QuestionManager(models.Manager):
