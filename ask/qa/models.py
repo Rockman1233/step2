@@ -4,8 +4,8 @@ from django.db import models
 class Question(models.Model):
     title = models.CharField()
     text = models.TextField()
-    added_at = models.DateField()
-    rating = models.FloatField()
+    added_at = models.DateField(auto_now_add = True)
+    rating = models.IntegerField(default = 0)
     author = models.CharField()
     likes = models.TextField()
 
