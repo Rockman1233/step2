@@ -3,11 +3,11 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Question(models.Model):
-    title = models.CharField()
+    title = models.CharField(max_length = 30)
     text = models.TextField()
     added_at = models.DateField(auto_now_add = True)
     rating = models.IntegerField(default = 0)
-    author = models.CharField(User)
+    author = models.CharField(User, max_length = 30)
     likes = models.TextField(User)
     
 class QuestionManager(models.Manager):
@@ -20,5 +20,5 @@ class QuestionManager(models.Manager):
 class Answer(models.Model):
     text = models.TextField()
     added_at = models.DateField()
-    author = models.CharField()
+    author = models.CharField(User, max_length = 30)
     question = models.ForeignKey(Question)
