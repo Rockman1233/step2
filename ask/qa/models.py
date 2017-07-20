@@ -7,8 +7,8 @@ class Question(models.Model):
     text = models.TextField()
     added_at = models.DateField(auto_now_add = True)
     rating = models.IntegerField(default = 0)
-    author = models.ForeignKey(User, null = True)
-    likes = models.ManyToManyField(default='')
+    author = models.ForeignKey(User, null = True, on_delete=models.SET_NULL)
+    likes = models.ManyToManyField(User, related_name="q_to_likes")
     
 class QuestionManager(models.Manager):
     def new(self):
