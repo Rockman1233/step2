@@ -20,11 +20,13 @@ from qa.urls import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-	url(r'^$', views.test, name='test'),
+	url(r'^$', views.mainpage, name='mainpage'),
 	url(r'^login/', views.test, name='test'),
 	url(r'^signup/', views.test, name='test'),
-	url(r'^question/(?P<id>\d+)/', views.test, name='test'),
+	url(r'^question/(?P<pk>\d+)/', views.question, name='question'),
 	url(r'^ask/', views.test, name='test'),
-	url(r'^popular/', views.test, name='test'),
+	url(r'^popular/', views.popular, name='popular'),
 	url(r'^new/', views.test, name='test'),
 ]
+
+
