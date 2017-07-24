@@ -20,7 +20,7 @@ from qa.urls import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-	url(r'^$', views.mainpage, name='mainpage'),
+	url(r'^$', views.mainpg, name='mainpg'),
 	url(r'^login/', views.test, name='test'),
 	url(r'^signup/', views.test, name='test'),
 	url(r'^question/(?P<pk>\d+)/', views.question, name='question'),
