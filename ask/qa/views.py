@@ -15,3 +15,11 @@ def mainpg(request):
 		'page': page,
 		'paginator': paginator,
 	})
+
+def question(request, pk):
+	question = get_object_or_404(Question, id=pk)
+	answers = question.answer_set.all()
+	return render(request, 'question.html', {
+		'question': question,
+		'answers': answers,
+	})
