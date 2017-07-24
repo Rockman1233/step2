@@ -23,3 +23,13 @@ def question(request, pk):
 		'question': question,
 		'answers': answers,
 	})
+
+def popular(request):
+	qs = Question.objects.order_by('-rating')
+	page, paginator = paginate(request, qs)
+	paginator.baseurl = reverse('popular') + '?page='
+	return render(request, 'popular.html', {
+		'questions': page.object_list,
+		'page': page,
+		'paginator': paginator,
+	})
