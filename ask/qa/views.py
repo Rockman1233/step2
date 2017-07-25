@@ -4,7 +4,6 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage
 from django.core.urlresolvers import reverse
 from qa.models import Question
-from qa.forms import AskForm, AnswerForm
 from django.views.decorators.csrf import csrf_exempt
 
 
