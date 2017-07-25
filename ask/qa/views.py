@@ -45,7 +45,6 @@ def question(request, pk):
 	return render(request, 'question.html', {
 		'question': question,
 		'answers': answers,
-		'text': text,
 	})
 
 def popular(request):
