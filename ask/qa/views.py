@@ -56,3 +56,40 @@ def popular(request):
 		'page': page,
 		'paginator': paginator,
 	})
+
+@csrf_exempt
+def question(request, pk):
+	question = get_object_or_404(Question, id=pk)
+	answers = question.answer_set.all()
+	form = AnswerForm(initial={'question': str(pk)})
+	return render(request, 'question.html', {
+		'question': question,
+		'answers': answers,
+		'form': form,
+	})
+
+@csrf_exempt
+def question_ask(request):
+	if request.method == 'POST':
+		form = AskForm(request.POST)
+		if form.is_valid():
+			form._user = request.user
+			ask = form.save()
+			url = ask.get_url()
+			return HttpResponseRedirect(url)
+	else:
+		form = AskForm()
+	return render(request, 'ask.html', {
+		'form': form
+	})
+
+@csrf_exempt
+def question_ans(request):
+	if request.method == 'POST':
+		form = AnswerForm(request.POST)
+		if form.is_valid():
+			form._user = request.user
+			answer = form.save()
+			url = answer.get_url()
+			return HttpResponseRedirect(url)
+	return HttpResponseRedirect('/')
