@@ -1,5 +1,10 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from __future__ import unicode_literals
+from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect
+from django.core.paginator import Paginator, EmptyPage
+from django.core.urlresolvers import reverse
+from qa.models import Question
+
 
 # Create your views here.
 
