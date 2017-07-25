@@ -10,6 +10,14 @@
   {% block answers %}
     <h2>Answers:</h2>
   {% for answer in answers %}
+
+      <div class="question">
+        <p class="info">
+          Question by {{ Question.author }} [{{ question.added_at }}]
+        </p>
+        {{ question.text|linebreaks }}
+      </div>
+
       <div class="answer">
         <p class="info">
           Answer by {{ answer.author }} [{{ answer.added_at }}]
