@@ -11,6 +11,9 @@ from qa.models import Question
 def test(request, *args, **kwargs):
     return HttpResponse('OK')
 
+def test(request, *args, **kwargs):
+    return HttpResponse('OK')
+
 def paginate(request, qs):
 	try:
 		limit = int(request.GET.get('limit', 10))
@@ -37,14 +40,6 @@ def mainpg(request):
 		'questions': page.object_list,
 		'page': page,
 		'paginator': paginator,
-	})
-
-def question(request, pk):
-	question = get_object_or_404(Question, id=pk)
-	answers = question.answer_set.all()
-	return render(request, 'question.html', {
-		'question': question,
-		'answers': answers,
 	})
 
 def popular(request):
