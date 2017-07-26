@@ -18,3 +18,30 @@
             {% endfor %}
         </ul>
     </div>
+
+    <h5>Добавить свой ответ:</h5>
+    <div class="container-fluid">
+        {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">{{ error }}</div>
+        {% endfor %}
+        <form class="form-horizontal" method="post" action="/question/{{question.pk}}/">
+
+            <fieldset>
+                {% csrf_token %}
+                <input value="{{ question.pk }}" name="question" type="hidden">
+                <div class="control-group {% if field.errors %}has-error{% endif %}">
+                    <label class="control-label">{{ form.text.label }}</label>
+                    <div class="controls">{{ form.text }}</div>
+                </div>
+            </fieldset>
+
+            <br>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">
+                    Сохранить
+                </button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
