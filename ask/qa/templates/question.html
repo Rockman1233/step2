@@ -14,10 +14,8 @@
         <p class="info">
           Answer by {{ answer.author }} [{{ answer.added_at }}]
         </p>
-        {{ answer.text|linebreaks }}
+        {{ answer.text }}
       </div>
-      {% empty %}
-      <p>There are no answers yet.</p>
     {% endfor %}
   {% endblock %}
 
