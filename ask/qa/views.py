@@ -58,7 +58,6 @@ def question(request, pk):
  		'answers': answers,		
  	})
 
-@csrf_exempt
 def question_ask(request):
 	if request.method == 'POST':
 		form = AskForm(request.POST)
