@@ -58,4 +58,18 @@ def question(request, pk):
  		'answers': answers,		
  	})
 
+@csrf_exempt
+def question_ask(request):
+	if request.method == 'POST':
+		form = AskForm(request.POST)
+		if form.is_valid():
+			form._user = request.user
+			ask = form.save()
+			url = ask.get_url()
+			return HttpResponseRedirect(url)
+	else:
+		form = AskForm()
+	return render(request, 'ask.html', {
+		'form': form
+	})
 
