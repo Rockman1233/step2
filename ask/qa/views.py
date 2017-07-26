@@ -72,3 +72,13 @@ def question_ask(request):
 		'form': form
 	})
 
+def question_ans(request):
+	if request.method == 'POST':
+		form = AnswerForm(request.POST)
+		if form.is_valid():
+			form._user = request.user
+			answer = form.save()
+			url = answer.get_url()
+			return HttpResponseRedirect(url)
+	return HttpResponseRedirect('/')
+
