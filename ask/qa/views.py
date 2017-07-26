@@ -12,9 +12,6 @@ from django.views.decorators.csrf import csrf_exempt
 def test(request, *args, **kwargs):
     return HttpResponse('OK')
 
-def test(request, *args, **kwargs):
-    return HttpResponse('OK')
-
 def paginate(request, qs):
 	try:
 		limit = int(request.GET.get('limit', 10))
