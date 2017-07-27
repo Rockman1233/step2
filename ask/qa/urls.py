@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from qa.views import test, mainpg, question, popular
+from qa.views import test, mainpg, question, popular, question_ans
 
 urlpatterns = [
 	url(r'^$', mainpg, name='mainpg'),
