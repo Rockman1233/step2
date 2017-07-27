@@ -21,5 +21,3 @@ urlpatterns = [
 	url(r'^', include('qa.urls')),
 	url(r'^admin/', admin.site.urls),
 ]
-
-
