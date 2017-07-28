@@ -8,7 +8,7 @@ class AskForm(forms.Form):
 	title = forms.CharField(max_length=255)
 	text = forms.CharField(widget=forms.Textarea)
 	def clean(self):
-		pass
+		return self.cleaned_data
 	def save(self):
 		ask = Question(**self.cleaned_data)
 		ask.author_id = self._user.id
