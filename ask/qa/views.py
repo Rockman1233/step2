@@ -68,7 +68,7 @@ def question_ask(request):
 			form._user = request.user
 			ask = form.save()
 			url = ask.get_url()
-			return HttpResponseRedirect(url)
+			return HttpResponseRedirect('/question/')
 	else:
 		form = AskForm()
 	return render(request, 'ask.html', {
