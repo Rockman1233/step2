@@ -51,7 +51,7 @@ def popular(request):
 		'paginator': paginator,
 	})
 
-@csrf_exempt
+
 def question(request, pk):		
  	question = get_object_or_404(Question, id=pk)		
  	answers = question.answer_set.all()		
@@ -60,7 +60,7 @@ def question(request, pk):
  		'answers': answers,		
  	})
 
-@csrf_exempt
+
 def question_ask(request):
 	if request.method == 'POST':
 		form = AskForm(request.POST)
@@ -75,7 +75,7 @@ def question_ask(request):
 		'form': form
 	})
 
-@csrf_exempt
+
 def question_ans(request):
 	if request.method == 'POST':
 		form = AnswerForm(request.POST)
